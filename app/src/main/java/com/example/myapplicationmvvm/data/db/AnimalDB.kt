@@ -8,8 +8,8 @@ import com.example.myapplicationmvvm.data.entities.DogEntity
 
 @Database(entities = arrayOf(CatEntity::class, DogEntity::class), version = VERSION)
 abstract class AnimalDB : RoomDatabase() {
-    abstract fun catsDao(): CatsDao
-    abstract fun dogsDao(): DogsDao
+    abstract fun catsDao(): CatDao
+    abstract fun dogsDao(): DogDao
 
 
     companion object{

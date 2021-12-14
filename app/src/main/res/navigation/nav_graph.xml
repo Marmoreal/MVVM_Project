@@ -9,7 +9,7 @@
         android:id="@+id/overviewFragment"
         android:name="com.example.myapplicationmvvm.presentation.list.AnimalListFragment"
         android:label="fragment_overview"
-        tools:layout="@layout/fragment_overview" >
+        tools:layout="@layout/fragment_animal_list" >
         <action
             android:id="@+id/action_overviewFragment_to_createFragment"
             app:destination="@id/createFragment" />
