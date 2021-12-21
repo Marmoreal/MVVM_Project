@@ -6,10 +6,10 @@ import com.example.myapplicationmvvm.data.db.AnimalDB.Companion.VERSION
 import com.example.myapplicationmvvm.data.entities.CatEntity
 import com.example.myapplicationmvvm.data.entities.DogEntity
 
-@Database(entities = arrayOf(CatEntity::class, DogEntity::class), version = VERSION)
+@Database(entities = [CatEntity::class, DogEntity::class], version = VERSION)
 abstract class AnimalDB : RoomDatabase() {
-    abstract fun catsDao(): CatDao
-    abstract fun dogsDao(): DogDao
+    abstract fun catDao(): CatDao
+    abstract fun dogDao(): DogDao
 
 
     companion object{

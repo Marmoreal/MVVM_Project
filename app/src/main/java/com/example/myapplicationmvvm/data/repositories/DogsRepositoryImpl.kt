@@ -1,26 +1,29 @@
 package com.example.myapplicationmvvm.data.repositories
 
+import com.example.myapplicationmvvm.data.db.DogDao
 import com.example.myapplicationmvvm.data.entities.DogEntity
 import com.example.myapplicationmvvm.domain.repositories.DogsRepository
+import kotlinx.coroutines.flow.Flow
 
-class DogsRepositoryImpl: DogsRepository {
-    override suspend fun getAllDogs(): List<DogEntity> {
-        TODO("Not yet implemented")
+class DogsRepositoryImpl(private val dao: DogDao) : DogsRepository {
+
+    override fun getAllDogs(): Flow<List<DogEntity>> {
+        return dao.getAllDogs()
     }
 
-    override suspend fun getDog(): DogEntity {
-        TODO("Not yet implemented")
+    override fun getDog(dogId: Int): DogEntity {
+        return dao.getDog(dogId)
     }
 
     override suspend fun insert(vararg dog: DogEntity) {
-        TODO("Not yet implemented")
+        dao.insert(*dog)
     }
 
     override suspend fun update(vararg dog: DogEntity) {
-        TODO("Not yet implemented")
+        dao.update(*dog)
     }
 
     override suspend fun delete(vararg dog: DogEntity) {
-        TODO("Not yet implemented")
+       dao.delete(*dog)
     }
 }

@@ -1,26 +1,29 @@
 package com.example.myapplicationmvvm.data.repositories
 
+import com.example.myapplicationmvvm.data.db.CatDao
 import com.example.myapplicationmvvm.data.entities.CatEntity
 import com.example.myapplicationmvvm.domain.repositories.CatsRepository
+import kotlinx.coroutines.flow.Flow
 
-class CatsRepositoryImpl : CatsRepository {
-    override suspend fun getAllCats(): List<CatEntity> {
-        TODO("Not yet implemented")
+class CatsRepositoryImpl(private val dao: CatDao) : CatsRepository {
+
+    override fun getAllCats(): Flow<List<CatEntity>> {
+        return dao.getAllCats()
     }
 
-    override suspend fun getCat(): CatEntity {
-        TODO("Not yet implemented")
+    override fun getCat(catId: Int): CatEntity {
+        return dao.getCat(catId)
     }
 
     override suspend fun insert(vararg cat: CatEntity) {
-        TODO("Not yet implemented")
+        dao.insert(*cat)
     }
 
     override suspend fun update(vararg cat: CatEntity) {
-        TODO("Not yet implemented")
+        dao.update(*cat)
     }
 
     override suspend fun delete(vararg cat: CatEntity) {
-        TODO("Not yet implemented")
+        dao.delete(*cat)
     }
 }

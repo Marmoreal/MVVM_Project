@@ -1,16 +1,17 @@
 package com.example.myapplicationmvvm.domain.repositories
 
 import com.example.myapplicationmvvm.data.entities.DogEntity
+import kotlinx.coroutines.flow.Flow
 
 interface DogsRepository {
 
-    suspend fun getAllDogs(): List<DogEntity>
+    fun getAllDogs(): Flow<List<DogEntity>>
 
-    suspend fun getDog(): DogEntity
+    fun getDog(dogId: Int): DogEntity
 
-    suspend fun insert(vararg dog:DogEntity)
+    suspend fun insert(vararg dog: DogEntity)
 
-    suspend fun update(vararg dog:DogEntity)
+    suspend fun update(vararg dog: DogEntity)
 
-    suspend fun delete(vararg dog:DogEntity)
+    suspend fun delete(vararg dog: DogEntity)
 }
